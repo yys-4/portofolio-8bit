@@ -1,7 +1,7 @@
 # Domain Configuration Fix
 
 ## Problem
-The deployment was trying to use the custom domain "mhdays.me" which is now inactive, causing deployment errors.
+The deployment was trying to use the custom domain "mhdays.me" which is now inactive, causing deployment errors. Although the GitHub Actions deployment was completing successfully, the site was showing an error because GitHub Pages was trying to serve it on the inactive custom domain.
 
 ## Solution Implemented
 The deployment workflow has been updated to explicitly remove any CNAME file that might be created during the build process. This ensures that the site will be served on the default GitHub Pages domain: **yys-4.github.io/portofolio-8bit**
