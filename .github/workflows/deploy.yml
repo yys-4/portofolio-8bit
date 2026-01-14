@@ -45,6 +45,15 @@ jobs:
             exit 1
           fi
       
+      - name: Remove CNAME file
+        run: |
+          if [ -f "./out/CNAME" ]; then
+            echo "Removing CNAME file to use default GitHub Pages domain"
+            rm ./out/CNAME
+          else
+            echo "No CNAME file found, using default GitHub Pages domain"
+          fi
+      
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
